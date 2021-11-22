@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function newsPaper(h,n){
+       
+            //this.date=d;
+            this.date = new Date()
+           //this.random_id=i;
+            this.id=Math.round(Math.random()*100)
+            this.headline=h;
+            this.name=n;
+        
+    }
+    //"new" keyword is immportant
+
+    let paper1 = new newsPaper("India Won","Times Of India")
+    console.log("paper1:",paper1)
+</script>

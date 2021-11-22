@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAll APPLY BIND</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //Default Binding
+    //Implicit Binding
+    //Explicit Bimding => call(),apply(),bind()
+ 
+ //accesing method of one object to anathor
+ /*
+    const kitchen = {
+     name:"kitchen",
+     purpose:"cook",
+     order:"thali",
+
+     CookFood(){
+         console.log(`serving ${LR.order}`);
+
+     }
+ }
+
+ //Before ->this->LR
+
+ //.call 
+ //.call always use in function
+
+ //this -->LR
+ const LR ={
+     name:"Living Room",
+     purpose:"rest",
+     order:"maggie",
+ };
+kitchen.CookFood.call(LR);
+
+//.call stealing the method "cookFood from kitchen"
+
+*/
+
+
+
+
+
+
+
+//let's try to Access Method of Another object
+
+
+function Person(n,a){
+    this.name=n;
+    this.age=a;
+}
+
+function Teacher(s,n,a){
+    //.call
+    //Function.call(NewOwnerObj==thid,)
+    Person.call(this,n,a)
+
+    // this.name=n;
+    // this.age=a;
+    this.subject =s;
+}
+
+
+function Student(n,a){
+    //.apply
+
+    Person.apply(this,[n,a])
+
+
+    // this.name=n;
+    // this.age=a;
+    this.class="10th"
+}
+
+let t1 = new Teacher("Physics","Pablo Pande","30");
+console.log("t1: ",t1)
+
+let s1 = new Student("pablu","10")
+console.log("s1: ",s1)
+
+
+
+
+function Player(s,n,a){
+    
+    //.bind
+
+    let x=Person.bind(this,n,a)
+    
+    //x();
+    //is gift
+    var result = 5+9;
+    if(result===14){
+        x();
+    }
+
+
+    this.sport = s;
+}
+
+let p1 = new Player("FoodBall","Christiano Pablo",37);
+console.log("p1: ",p1)
+
+
+</script>

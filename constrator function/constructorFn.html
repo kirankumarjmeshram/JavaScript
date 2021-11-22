@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construcror Function</title>
+</head>
+<body>
+    
+    
+</body>
+</html>
+<script>
+
+// function nikeProducts(n,p,t){
+
+//     let product ={};
+
+//     product.name =n;
+//     product.price=p;
+//     product.type=t;
+
+//     return product;
+// }
+
+// nikeProducts('airmax','4000',"sneakers");
+
+
+//constrocter function
+
+function nikeProductCF(n,p,t){
+   this.name =n;
+   this.price=p;
+   this.type=t;
+}
+
+let myproduct = new nikeProductCF('airmax','4000',"sneakers");
+
+console.log("myproduct: ", myproduct);
+
+</script>

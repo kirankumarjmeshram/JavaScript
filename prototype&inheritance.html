@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    //PROTOTYPE AND INHERITANCE
+//     const sneaker ={
+//         type:'sneakers',
+//         color:'white',
+//         material:'leather',
+//         brand:'Nike',
+//     };
+
+//     const s1 = Object.create(sneaker)
+//     s1.price = 2000;
+//     const s2 = Object.create(sneaker)
+//     s2.price = 3000;
+//     const s3 = Object.create(sneaker)
+//     s3.price = 3500;
+
+//     console.log(s1,s2,s3)
+
+// //===============================================
+//     const cat ={
+//         legs:4,
+//         tail:true,
+//         type:"Carnivorous",
+//         eyes:"two",
+//     }
+
+//     const tiger = Object.create(cat)
+//     tiger.speed =60
+
+//     // const bengalTigar = Object.create(tiger)
+//     // bengalTigar.color = "abcd"      //__prototypeChain
+  
+//     const bengalTigar = Object.setPrototypeOf({location:"sunderban",size:"6ft+"},tiger);
+
+    
+//     console.log(bengalTigar) ;
+
+//     console.log(bengalTigar.hasOwnProperty("speed")) //false
+//     console.log(bengalTigar.hasOwnProperty('size')) //true
+
+
+
+// function NewsPaper(h){
+//     this.date = new Date();
+//     this.heading =h;
+//     this.publication ="pablo papers";
+// }
+
+// //prototype
+// NewsPaper.prototype.advertisement = function(){
+//     console.warn("click this to wil iphone 14")
+// };
+
+// NewsPaper.prototype.delivery ="drone";
+
+
+// for(let i=0;i<3;i++){
+//     var n1 = new NewsPaper('farm laws revoke');
+//     console.log("n1: ",n1.delivery)
+//     //n1.advertisement();
+
+    
+// }
+
+
+//   function Product(p){
+//     this.name='n';
+//     this.type='Shoe';
+// }
+// //Product.prototype.coupen = "Masai30"
+// Product.prototype.coupen =function (c){
+//     console.log("coupen applied")
+// }
+// console.log(Product);
+
+let arr2 = new Array(4,5,6);
+
+let arr =  new MyArray('masai','dfr','drfth','stcr')
+
+//console.log(arr)
+
+
+function MyArray(){
+    //configuring length property
+
+    Object.defineProperties(this,"length",{
+        value:0,
+        writable: false,
+        enumerable: false;
+    })
+}
+
+function MyArray(){
+    for (let i=0;i<arguments.length;i++){
+       // console.log(arguments[i])
+
+       this[i] = arguments[i];
+    }
+
+    this.length = arguments.length;
+}
+
+
+</script>
