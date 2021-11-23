@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="startSS()">Start Slideshow</button>
+    <button onclick=" stopSlideShow">Stop Slideshow</button>
+    <div id="images"></div>
+</body>
+</html>
+<script>
+
+    let i=0;
+    let id;
+
+    let div =document.getElementById("images")
+
+    function startSS(){
+        //get the images from localstorage
+        let images = JSON.parse(localStorage.getItem("images"));
+        //console.log("images: ",images)
+
+        
+        id = setInterval(function(){
+            if(i===images.length){
+                i=0;
+            }
+            div.innerHTML=null;
+            let img = document.createElement("img")
+            img.setAttribute("src",images[i]);
+           
+            div.appendChild(img);
+            
+            i++;
+             //console.log("i: ",i)
+        },3000);
+    }
+
+    function stopSlideShow(){
+        clearInterval(id); //id declare in global scope to acces from anywhere
+    }
+
+
+
+</script>
