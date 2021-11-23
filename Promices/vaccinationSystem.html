@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination Session</title>
+</head>
+<body>
+    <h1>VaccinationSystem</h1>
+    <input type="text" id="name"/>
+
+    <button onclick="register()">Register</button>
+</body>
+</html>
+<script>
+    //if-else = happens instantaneously
+    //promices = more flexible than if-else in terms of time
+
+    //it is a construvtor fn which return obj
+
+    //1. Registration names
+    //2. waiting
+    //3. turn comes(resolve)
+    //4. Vaccination
+
+
+    let queue =["babu bhaiya","raju","sham","totla seth"];
+
+function register(){
+
+    //1. Registration names
+    let name =document.getElementById("name").value;
+    //console.log("name: ",name)
+
+    let message =`${name} your registration is successfull. Please wait for your turn!`;
+    alert(message)
+
+    queue.push(name);
+    //console.log(queue)
+
+//PROMICE
+
+let myPromice = new Promise(function(resolve,reject){
+    
+    //do we have to keep on checking?
+    //yes so we use setInterval
+    setInterval(function(){
+        if(queue[0]===name){
+        resolve(`${name} your vaccinaton turn now`)
+        }
+    },1000);
+
+});//it takes a funtion which takes two parameters resolve and reject
+
+//.then
+
+myPromice.then(function(res){ //res= resolve(``) 
+    alert(res);
+});
+
+}
+
+function startVaccination(){
+    queue.shift(id);
+    console.log("queue: ",queue)
+    if(queue.length===0){
+        clearInterval(id)
+    }
+}
+
+let id = setInterval(startVaccination,3000);
+
+
+</script>
