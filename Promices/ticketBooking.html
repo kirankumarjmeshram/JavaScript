@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking System</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //4-friends want to goa from mumbai to goa
+    //is rainy reason but they dont want to miss at any cost
+    //so booked ticket of three train , mum-goa,pune-goa,bang-goa
+    //if any train available book it;
+
+    //create trains
+
+        //we are using Async await not .then .catch
+    let BtG =["messy","batman","elon","pablo pandey","jethalal","Mr,Bean"];
+    let MtG =["messy","batman","elon","pablo pandey","jethalal","Mr,Bean"];
+    let PtG =["messy","batman","elon","pablo pandey","jethalal","Mr,Bean"]
+
+    //ASYNC AWAIT
+async function checkAvailability(){
+    let myPromice= new Promise(function(resolve,reject){
+
+        setInterval(function(){
+        if(BtG.length===4){
+            resolve("BtG 4 seats are available");
+            clearInterval(interval);
+        }else if(MtG.length===4){
+            resolve("BtG 4 seats are available");
+            clearInterval(interval);
+        }else if(PtG.length===4){
+            resolve("BtG 4 seats are available");
+            clearInterval(interval);
+        }
+        },1000);
+    });
+
+    let result = await myPromice;
+    console.log("result: ",result);
+
+}
+    
+function cancelTicket(){
+    //random cancellation speeds (Math.random)
+    //three different speed for three train 
+
+    let cS1 = Math.random()*5;//cS1= canceling speed for train1
+    let cS2 = Math.random()*5;
+    let cS3 = Math.random()*5 ;
+setTimeout(function(){
+    BtG.pop()
+},cS1*1000);
+setTimeout(function(){
+    MtG.pop()
+},cS2*1000);
+setTimeout(function(){
+    PtG.pop()
+},cS3*1000)
+   
+console.log(BtG,MtG,PtG)
+}
+
+setInterval(cancelTicket,3000);
+
+</script>
