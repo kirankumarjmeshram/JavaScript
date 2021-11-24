@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,30 +12,99 @@
       </style>
     
       <body>
-        <input type="text" id="image" placeholder="Enter Image URL" />
+        <input type="text" id="imageUrl" placeholder="Enter Image URL" />
     
-        <button onclick="addImage()">Submit</button>
-        <button>Go to Slideshow</button>
+        <button onclick="storeImage()">Submit image URL</button>
+        <button onclick="gotoSlideshow()">Go to Slideshow</button>
+        <div id="images">
+
+        </div>
       </body>
     </html>
     
     <script>
-        let arr =[];
-        function addImage(){
+       // let arr =[];
+
+        function gotoSlideshow(){
+          window.location.herf='slideshow.html'
+        }
+        function storeImage(){
             //we will first try to get the data from localstorage
-            let images = JSON.parse(localStorage.getItem("images"))||[];
+            //let images = JSON.parse(localStorage.getItem("images"))||[];
             //if it doesent exist creat it
             // if(image ===null){
             //     image=[]
             // }
+            var image =document.getElementById("imageUrl").value;
+            var images = localStorage.getItem("images");
+            if(images==null){
+              image=[]
+              console.log(images)
+            }else{
+              images.JSON.parse(localStorage.getItem('images'))
+            }
 
-            let url = document.getElementById("image").value;
+            //images.push(image);
 
-            arr.push(url);
-
-            localStorage.setItem("images",JSON.stringify(arr));
+            localStorage.setItem("images",JSON.stringify(images));
 
         }
-        console.log(arr)
+        console.log(images)
     </script>
-    
+     -->
+
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="url">
+    <button onclick="storeImages()">Submit image URL</button>
+    <button onclick="gotoSlideshow()">Watch Slideshow</button>
+
+    <div id="images">
+
+    </div>
+</body>
+</html>
+
+<script>
+
+
+function gotoSlideshow(){
+
+    window.location.href='slideshow.html'
+}
+
+
+    function storeImages()
+    {
+
+        var image=document.getElementById('url').value
+
+        var images=localStorage.getItem('images')
+
+       if(images==null){
+
+        images=[]
+
+        console.log(images)
+       }
+       else{
+
+        images= JSON.parse(localStorage.getItem('images'))
+       }
+
+      console.log(image)
+
+       images.push(image)
+
+       localStorage.setItem('images',JSON.stringify(images))
+       
+    }
+console.log(images)
+</script>

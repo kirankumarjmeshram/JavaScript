@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,4 +46,83 @@
 
 
 
+</script> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="start()">Start Slideshow</button>
+    <button onclick="stop()">Stop Slideshow</button>
+
+    <div id="images">
+
+    </div>
+</body>
+</html>
+
+<script>
+var intervalid;
+
+var i=0
+var flag=false
+function stop(){
+
+    flag=true
+    clearInterval(intervalid)
+
+
+    
+}
+
+function start()
+{
+
+if(flag==true){
+    i=i-1
+}   
+var div=document.getElementById('images')
+
+div.innerHTML=null
+
+var arr=JSON.parse(localStorage.getItem('images'))
+
+var img=document.createElement('img')
+
+img.setAttribute('src',arr[i])
+
+i=i+1
+
+div.appendChild(img)
+
+
+
+
+intervalid=setInterval(function(){
+
+    if(i==3){
+
+        i=0
+    }
+
+
+    //console.log(i)
+
+    div.innerHTML=null
+
+    img.setAttribute('src',arr[i])
+
+    div.appendChild(img)
+
+    i=i+1
+
+
+},100)
+}
 </script>
