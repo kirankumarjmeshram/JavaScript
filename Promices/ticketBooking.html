@@ -7,7 +7,8 @@
     <title>Ticket Booking System</title>
 </head>
 <body>
-    
+    <h1>Seat Availability Notifier</h1>
+    <button onclick="checkAvailability()">Register</button>
 </body>
 </html>
 <script>
@@ -38,7 +39,7 @@ async function checkAvailability(){
             resolve("BtG 4 seats are available");
             clearInterval(interval);
         }
-        },1000);
+        },100);
     });
 
     let result = await myPromice;
@@ -66,6 +67,6 @@ setTimeout(function(){
 console.log(BtG,MtG,PtG)
 }
 
-setInterval(cancelTicket,3000);
+var interval = setInterval(cancelTicket,3000);
 
 </script>
