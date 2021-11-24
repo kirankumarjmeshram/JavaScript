@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wall{
+            display: grid;
+            grid-template-columns: repeat(4,20);
+            
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div id="wall"></div>
+</body>
+</html>
+<script>
+//     fetch(url) => fetch is a function=> create promice bcz it takes time
+//     https://reqres.in/
+//     to summerize, using the fetch api will look like this
+//     fetch(url)
+//     .then(function(){
+
+//     });
+//     .catch(function(){
+
+//     });
+// to collect the fetched  data use .JSON
+
+let url ="https://reqres.in/api/users?page=2";
+let wall = document.getElementById("wall")
+
+    fetch(url).then(function(responce){
+        return responce.json()
+        })
+        .then(function(res){
+            //console.log(responce)
+         const data = res.data; 
+         
+         appendProducts(data)
+    })
+   
+    .catch(function(err){
+    console.log("found an error in my fetch: ",err)
+    })
+
+    function appendProducts(user_array){
+        user_array.forEach(function(user){
+            let div = document.createElement("div")
+
+            let img = document.createElement("img")
+            img.src = user.avatar
+
+            let name = document.createElement("p")
+
+            name.innerText = `${user.first_name} ${ user.last_name}`
+
+            let email = document.createElement("p")
+            email.innerText = user.email
+
+            wall.append(img,name,email)
+        })
+    }
+
+
+    
+</script>
