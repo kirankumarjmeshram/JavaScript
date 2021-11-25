@@ -31,15 +31,15 @@ async function checkAvailability(){
         setInterval(function(){
         if(BtG.length===4){
             resolve("BtG 4 seats are available");
-            clearInterval(interval);
+            clearTimeout(interval);
         }else if(MtG.length===4){
-            resolve("BtG 4 seats are available");
-            clearInterval(interval);
+            resolve("MtG 4 seats are available");
+            clearTimeout(interval);
         }else if(PtG.length===4){
-            resolve("BtG 4 seats are available");
-            clearInterval(interval);
+            resolve("PtG 4 seats are available");
+            clearTimeout(interval);
         }
-        },100);
+        },1000);
     });
 
     let result = await myPromice;
@@ -56,7 +56,7 @@ function cancelTicket(){
     let cS3 = Math.random()*5 ;
 setTimeout(function(){
     BtG.pop()
-},cS1*1000);
+}cs1,1000);
 setTimeout(function(){
     MtG.pop()
 },cS2*1000);

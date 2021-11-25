@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetch</h1>
+
+    <input type="text" id="city" placeholder="Enter the City Name"/>
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="data"></div>
+</body>
+</html>
+<script>
+   
+   //api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+   //let key =`e9701339369ffbc20c7c70edf1cabadc`;
+    async function getWeather(){
+        let city =document.getElementById('city').value;
+        let url =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e9701339369ffbc20c7c70edf1cabadc`;
+
+        let res = await fetch(url);
+        let data =await res.json()
+        let temp=Math.round(data.main.temp-273)+"C"
+        console.log("temp: ",temp)
+    } 
+  
+
+   //Wheather of a city
+
+    //https://developers.google.com/maps/documentation/embed/get-started
+
+    //https://developers.google.com/maps/documentation/embed/get-api-key
+
+    //https://apilist.fun
+
+
+
+
+</script>
