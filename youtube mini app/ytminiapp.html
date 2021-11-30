@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Tube</title>
+</head>
+<body>
+    <h1>Youtube</h1>
+
+    <input type="text" name="" id="search">
+    <button onclick="searchVideos()">Search</button>
+    <div id="search_results"></div>
+</body>
+</html>
+<script>
+//AIzaSyDwzRu-HObFvzEOtjdc4kJEPcBvyblegI0
+//AIzaSyB8ISqc9mU6E71OulGswURd51y2qjmWJHs
+//AIzaSyDMPOuJoJ7h5vx9UOlRPkxVDgxUKR0UHWU
+//GET https://youtube.googleapis.com/youtube/v3/videos?key=[YOUR_API_KEY] 
+
+//let API ='AIzaSyB8ISqc9mU6E71OulGswURd51y2qjmWJHs';
+let search_results_div = document.getElementById('search_results')
+
+async function searchVideos(){ 
+   
+    try{
+        let inp = document.getElementById("search").value;
+//https://youtube.googleapis.com/youtube/v3/search?q=tesla&key=[YOUR_API_KEY]
+
+let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${inp}&type=video&key=AIzaSyBConO4na-GYhm-OAHOBLYqrcob16bjt4U&maxResults=20
+`)
+    let data = await res.json();
+   // cosole.log("data: ",data)
+
+   let array_of_videos = data.items;
+   appendVideos(array_of_videos);
+
+
+    }catch(err){
+        console.log("error: ",err)
+    }
+}
+
+function appendVideos(arr){
+    arr.forEach(({id:{videoId}})=>{
+        console.log("video:",videoId);
+
+        let iframe = document.createElement('iframe');
+        iframe.src =  `https://www.youtube.com/embed/${videoId}`;
+        let div = document.createElement("div");
+
+        div.append(iframe);
+
+        search_results_div.append(div)
+
+
+    })
+}
+
+
+</script>
