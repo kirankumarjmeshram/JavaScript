@@ -6,3 +6,9 @@
 a{
     text-decoration: none;
 }
+
+#data{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    margin: auto;
+}

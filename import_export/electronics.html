@@ -10,6 +10,7 @@
 </head>
 <body> 
     <div id="container"></div>
+    <div id="data"></div>
 </body>
 </html>
 
@@ -20,11 +21,22 @@
   //2. no export mentioned
   //3. YOU NEED TO USE LIVE SERVER ( HTTP )
 
-
+import {getData,appendData} from "./scripts/showdata.js"
+// import {abc,xyz} from "./scripts/showdata.js"
+// console.log(abc,xyz)
 import navbar from "./components/navbar.js";
 
 let container = document.getElementById("container");
 
+let data_div = document.getElementById('data')
 container.innerHTML = navbar();
+
+let responce = getData(`https://fakestoreapi.com/products/category/electronics
+`);
+
+responce.then((res)=>{
+    //console,log("res: ",res)
+    appendData(res,data_div)
+})
 
 </script>
