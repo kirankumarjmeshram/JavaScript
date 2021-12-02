@@ -10,6 +10,7 @@
 </head>
 <body> 
     <div id="container"></div>
+    <div id="data"></div>
 </body>
 </html>
 
@@ -19,12 +20,23 @@
   //1. incorrect file path 
   //2. no export mentioned
   //3. YOU NEED TO USE LIVE SERVER ( HTTP )
+import {getData, appendData} from "./scripts/showsata.js";
 
 
 import navbar from "./components/navbar.js";
 
 let container = document.getElementById("container");
 
+let data_div = getElementById("data");
+
 container.innerHTML = navbar();
+
+let response = await getData(`https://fakestoreapi.com/products/category/jewelery`);
+
+
+
+response.then((res)=>{
+    appendData(response,data_div)
+})
 
 </script>

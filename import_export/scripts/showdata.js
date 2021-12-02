@@ -4,6 +4,8 @@
 //2. appendData (data,location) => append data in location
 
 //electronics,jewellery (url will vary)
+
+//use promice to get result fast
 async function getData(url){
 
     try{
