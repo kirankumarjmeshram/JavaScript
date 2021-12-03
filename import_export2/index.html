@@ -9,13 +9,48 @@
   </head>
 
     <body>
-    <div id="container"></div>
+    <div id="navbar-container"></div>
+    <div id="main">
+      <button id="get-repo-btn">Get User Repo</button>
+    </div>
   </body>
 </html>
 <script type="module">
-  import navbar from './components/navbar.js'
+  import navbar from './components/navbar.js';
+  import getData from './scripts/getData.js';
 
-  let container = document.getElementById("container");
+  var response;
 
-  container.innerHTML = navbar()
+  let navbar_container = document.getElementById("navbar-container");
+
+  navbar_container.innerHTML = navbar();
+
+  let search_box = document.getElementById("search-input") //
+  //addEventLisener
+  search_box.addEventListener('keypress',makeAPICall);
+
+  async function makeAPICall(e){
+    if(e.key === "Enter"){
+      let user = search_box.value;
+    //make fetch call
+      let img = document.getElementById("profile-img");
+      img.src=response.avatar_url;
+
+    let response =await getData(user)
+    console.log("response: ",response);
+    }
+    
+    //async fn return value ie promice
+  }
+
+let btn = document.getElementById("get-repo-btn")
+btn.addEventListener('click',getUserRepos)
+
+async function getUserRepos(){
+  let res = await fetch(response.repos_url);
+
+  let data = await res.json();
+  console.log("data: ",data);
+}
+
 </script>
