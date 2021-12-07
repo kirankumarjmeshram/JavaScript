@@ -6,7 +6,7 @@
 async function getData(user){
 
     try{
-        let response = await fetch(`https://api.github.com/${user}`);
+        let response = await fetch(`https://api.github.com/user/${user}`);
         let  data =await response.json()
         return data;
     

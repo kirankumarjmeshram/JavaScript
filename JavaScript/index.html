@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .register-form{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="register-form">
+            <h1>Registration Form</h1>
+            <form action="">
+               <input type="text" id="mane" placeholder="Name"/>
+               <input type="text" id="email" placeholder="Email"/>
+               <input type="password" id="password" placeholder="Password"/>
+               <input type="text" id="username" placeholder="Username"/>
+               <input type="number" id="mobile" placeholder="Mobile"/>
+               <input type="text" id="description" placeholder="Description"/>
+            </form>
+           <button onclick="Register()">Signup</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+   
+   async function Register(){
+    //1.get all the input values
+    //2. Store it i the object 
+    //3. Convert the object to json
+    //4 send data to server {fetch}
+        let signup_data ={
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        username: document.getElementById("username").value,
+        mobile: document.getElementById("mobile").value,
+        description: document.getElementById("description").value,
+    }
+    //assignment
+
+        signup_data = JSON.stringify(signup_data);//reassignment
+
+        console.log("signup_data:",signup_data);
+    
+    let register_api = `https://masai-api-mocker.herokuapp.com/auth/register`
+
+    //GET OR POST
+    //Body -- send data in body
+
+      let response = await  fetch(register_api,{
+            method:"POST",
+            body: signup_data,
+            headers:{
+             "Contain-Type": "application/json",
+         },
+
+     });
+
+     let data = await response.json();
+     console.log("data:",data)
+    }
+
+    
+
+
+    
+</script>
