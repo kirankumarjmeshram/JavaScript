@@ -26,6 +26,14 @@
             </form>
            <button onclick="Register()">Signup</button>
         </div>
+        <div id="login-form">
+            <h1>Login Form</h1>
+            <form action="">
+                <input type="text" id="login-username" placeholder="Username"/>
+               <input type="password" id="login-password" placeholder="Password"/>
+            </form>
+           <button onclick="Login()">Login</button>
+        </div>
     </div>
 </body>
 </html>
@@ -69,7 +77,13 @@
     }
 
     
-
+    async function Login(){
+        let login_data ={
+            password: document.getElementById("login-password").value,
+            username: document.getElementById("login-username").value, 
+        };
+        login_data = JSON.stringify(login_data)
+    }
 
     
 </script>
