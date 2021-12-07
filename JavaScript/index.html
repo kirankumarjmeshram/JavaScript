@@ -83,6 +83,36 @@
             username: document.getElementById("login-username").value, 
         };
         login_data = JSON.stringify(login_data)
+
+        let login_api = `https://masai-api-mocker.herokuapp.com/auth/login`
+    
+    let response = await fetch(login_api,{
+        method:"POST",
+        body: login_data,
+        headers:{
+             "Contain-Type": "application/json",
+         },
+    });
+
+    let data = await response.json();
+    console.log("data:",data);
+    let username = document.getElementById("login-username").value;
+    getProfile(username.data.token);
+
+    }
+
+    async function getProfile(username,token){
+        let api = `https://masai-api-mocker.herokuapp.com/user/${username}`;
+        let responase = fetch(api,{
+            //every fetch request is get request unless utill specified
+            headers:{
+                "Contain-Type": "application/json",
+                Authorization : `Bearer ${token}`
+            }
+        });
+
+        let data = await response.json();
+        console.log("data:",data)
     }
 
     
