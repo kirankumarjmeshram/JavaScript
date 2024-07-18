@@ -5,7 +5,9 @@
   1. Good Part of callback - Callback are super important while writing asynchronous code in JS
   2. Bad Part of Callback - Using callback we can face issue:
      - Callback Hell
-     - Inversion of control
+     - Inversion of control    
+
+
   // Two issues while using callbacks
   // 1 - Callback hell (Pyramid of Doom)
   // When a function is passed as an argument to another function, it becomes a callback function. This process continues and there are many callbacks inside another's Callback function.
