@@ -305,7 +305,7 @@ https://github.com/kirankumarjmeshram
 
 ### LinkedIn
 
-www.linkedin.com/in/kirankumarjmeshram
+www.linkedin.com/in/kirankumar-j-meshram/
 
 ---
 
