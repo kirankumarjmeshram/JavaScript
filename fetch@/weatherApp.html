@@ -27,6 +27,8 @@
         let data =await res.json()
         let temp=Math.round(data.main.temp-273)+"C"
         console.log("temp: ",temp)
+        let display = document.getElementById('data');
+        display.innerHTML = `Temperature of ${city} is ${temp} .` 
     } 
   
 
