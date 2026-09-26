@@ -1,13 +1,12 @@
-let main = document.querySelector('.main');
-let input = document.querySelector('.input');
-let submit = document.querySelector('.submit');
-let list = document.querySelector('.list');
+document.addEventListener("DOMContentLoaded", function () {
+    const todoForm = document.querySelector('.todo-form');
+    const todoInput = document.querySelector('.todo-input');
+    const todoSubmit = document.querySelector('.todo-submit');
+    const todoList = document.querySelector('.todo-list');
 
-main.addEventListener('submit', (event)=> {
-    event.preventDefault();
-    if(!input.value.trim()) return;
-    const li = document.createElement('li');
-    li.textContent = input.value;
-    list.appendChild(li);
-    input.value = ""
+    todoForm.addEventListener("submit", function () {
+        
+    })
+
+
 })
